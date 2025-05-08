@@ -55,8 +55,12 @@ flowchart LR
 2. `python ./setup_company_data.py`
 3. `python ./setup_company_news_data.py`
 4. `cd ..` 하고, 아래 스크립트를 차례로 실행해주세요.
-5. `python llm_internal_api.py` (port: 9000)
-6. `python main.py` (port: 8000)
+5. `python llm_internal_api.py` 
+
+   `(port: 9000, POST: /llm/embedding, /llm/tagging)`
+6. `python main.py` 
+
+   `(port: 8000, POST: /api/db/search-talents, /api/db/upload-talents, /api/infer/extract-tags)`
 7. 일부 로직의 테스트는 `pytest` 라이브러리를 별도로 설치한 다음, `/tests` 에서 `pytest`로 단번에 가능합니다.
 
 ### 2) 구조도
