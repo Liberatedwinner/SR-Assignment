@@ -21,7 +21,6 @@ def compute_talent_hash(talent: TalentData) -> str:
     """for checking duplicates, compute a hash from the (nearly) unique value"""
 
     # linkedin url is unique
-    # TODO: can use e-mail as a key?
     if talent.linkedinUrl:
         key = talent.linkedinUrl.strip().lower()
     else:
@@ -54,11 +53,6 @@ async def get_db_connection(request: Request) -> AsyncGenerator[Connection, None
         yield connection
     finally:
         await request.app.state.db_pool.release(connection)
-
-
-# embedding
-# TODO
-async def load_talent_data(): ...
 
 
 # for readability, divide insert functions
@@ -200,4 +194,3 @@ async def insert_tags(
             INSERTS_DICT['tags'],
             talent_id, tag
         )
-

@@ -91,7 +91,6 @@ CREATE TABLE IF NOT EXISTS talent_tags (
     PRIMARY KEY (talent_id, tag)
 );
 """
-# tag_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
 
 CREATES_DICT = {
     'talents': CREATE_TALENTS_TABLE,

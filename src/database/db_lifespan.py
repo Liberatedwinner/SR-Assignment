@@ -49,7 +49,7 @@ async def db_lifespan(app: FastAPI):
             # skills
             await connection.execute(CREATES_DICT['skills'])
 
-            # positions  # TODO: check how to store, company_name id matching
+            # positions
             await connection.execute(CREATES_DICT['positions'])
 
             # educations

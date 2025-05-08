@@ -22,4 +22,4 @@ app.include_router(tag_extraction.llm_router, prefix=INFER_PREFIX)
 
 
 if __name__ == '__main__':
-    uvicorn.run('main:app', host='127.0.0.1', port=1234, reload=True)
+    uvicorn.run('main:app', host='127.0.0.1', port=8000, reload=True)

@@ -5,7 +5,6 @@ LLM_URL = 'http://localhost:9000/llm'
 EMBEDDING_URL = f'{LLM_URL}/embedding'
 TAGGING_URL = f'{LLM_URL}/tagging'
 
-# TODO: how to auto-update tag set? LLM-based update is expensive
 TAG_SET = {
     # 교육 및 배경
     '상위권대학교',

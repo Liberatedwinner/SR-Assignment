@@ -40,26 +40,6 @@ class TalentData(BaseModel):
     recommendations: Optional[List] = None
 
 
-# def validate_talent_data(contents: bytes) -> TalentData:
-#     try:
-#         talent_data = json.loads(contents)
-#
-#     except json.JSONDecodeError:
-#         raise HTTPException(
-#             status_code=400,
-#             detail='Invalid JSON file'
-#         )
-#
-#     try:
-#         return TalentData(**talent_data)  # validated_data
-#
-#     except ValidationError as ve:
-#         raise HTTPException(
-#             status_code=422,
-#             detail=ve.errors()
-#         )
-
-
 def validate_talent_data(payload: Union[bytes, Dict]) -> TalentData:
     if isinstance(payload, bytes):
         try:

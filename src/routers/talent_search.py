@@ -49,7 +49,6 @@ async def search_talents(
 
         return {'status': 'ok', 'information': position_information}
 
-    except Exception:  # TODO
+    except Exception:
         raise
 
-# TODO: search company news; get_embedding for headlines
