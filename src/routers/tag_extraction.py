@@ -102,4 +102,4 @@ async def extract_tags(
 @llm_router.post('/extract-tag-directly')
 async def extract_tags_without_db():
     """infer tags without saving to DB"""
-    ...
+    raise NotImplementedError

@@ -17,8 +17,8 @@ app.include_router(talent_upload.router, prefix=DB_PREFIX)
 # for tag inference
 app.include_router(tag_extraction.app_router, prefix=INFER_PREFIX)
 
-# for tag inference, without saving to DB
-app.include_router(tag_extraction.llm_router, prefix=INFER_PREFIX)
+# # for tag inference, without saving to DB
+# app.include_router(tag_extraction.llm_router, prefix=INFER_PREFIX)
 
 
 if __name__ == '__main__':
