@@ -30,3 +30,44 @@ services:
       POSTGRES_DB: searchright
     volumes:
       - ./postgresql/data/:/var/lib/postgresql/data
+
+  # LLM
+  llm_api:
+    build:
+      context: .
+      dockerfile: dockerfile_llm
+    hostname: searchright-llmapi
+    container_name: searchright-llmapi
+    restart: always
+    ports:
+      - "9000:9000"
+    environment:
+      - PGVECTOR_HOST=searchright-psql
+      - PGVECTOR_PORT=5432
+      - PGVECTOR_USER=searchright
+      - PGVECTOR_PASSWORD=searchright
+      - PGVECTOR_NAME=searchright
+    depends_on:
+      - postgres
+      - nginx
+
+  # main
+  main_api:
+    build:
+      context: .
+      dockerfile: dockerfile_main
+    hostname: searchright-mainapi
+    container_name: searchright-mainapi
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - PGVECTOR_HOST=searchright-psql
+      - PGVECTOR_PORT=5432
+      - PGVECTOR_USER=searchright
+      - PGVECTOR_PASSWORD=searchright
+      - PGVECTOR_NAME=searchright
+    depends_on:
+      - postgres
+      - nginx
+      - llm_api
