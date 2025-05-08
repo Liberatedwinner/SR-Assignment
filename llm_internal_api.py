@@ -1,5 +1,5 @@
 import uvicorn
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 
 from src.llm.llm_lifespan import llm_lifespan
 from src.routers.llm_router import llm_router
